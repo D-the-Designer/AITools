@@ -102,7 +102,27 @@
   .card-n{ font-family: var(--mono); font-size: 10px; color: var(--accent); letter-spacing: 0.08em; }
   .card-model{ font-family: var(--mono); font-size: 11px; color: var(--ink-dim); margin: 2px 0 4px; }
   .card-subject{ font-size: 13.5px; line-height: 1.35; color: var(--ink); }
-  .card-actions{ display: flex; gap: 6px; flex: 0 0 auto; }
+  .card-actions{ display: flex; gap: 6px; flex: 0 0 auto; align-items: center; }
+  .img-slot{
+    width: 48px; height: 48px;
+    border: 1px dashed var(--panel-border);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; position: relative; overflow: hidden;
+    background: var(--bg); transition: border-color 0.15s ease, background 0.15s ease;
+    flex: 0 0 auto;
+  }
+  .img-slot:hover{ border-color: var(--accent-dim); }
+  .img-slot.has-image{ border-style: solid; border-color: var(--panel-border); }
+  .img-slot img{ width: 100%; height: 100%; object-fit: cover; display: block; }
+  .img-slot .hint{ font-size: 8px; color: var(--ink-dim); font-family: var(--mono); text-align: center; line-height: 1.2; padding: 2px; pointer-events: none; }
+  .img-slot.dragover{ border-color: var(--accent); background: rgba(201,163,78,0.1); }
+  .img-slot .remove-btn{
+    position: absolute; top: 2px; right: 2px; width: 16px; height: 16px; border-radius: 50%;
+    background: rgba(0,0,0,0.75); color: #fff; border: none; font-size: 11px; line-height: 1;
+    cursor: pointer; display: none; align-items: center; justify-content: center; padding: 0;
+  }
+  .img-slot.has-image:hover .remove-btn{ display: flex; }
   pre.card-text{ margin: 0; padding: 14px; font-family: var(--mono); font-size: 12.5px; line-height: 1.55; color: #cfd3c8; white-space: pre-wrap; word-break: break-word; max-height: 340px; overflow-y: auto; }
   .card-text::-webkit-scrollbar{ width: 8px; }
   .card-text::-webkit-scrollbar-thumb{ background: var(--panel-border); border-radius: 4px; }
@@ -416,6 +436,10 @@
               <div class="card-subject">${escapeHtml(p.subject)}</div>
             </div>
             <div class="card-actions">
+              <div class="img-slot" data-id="${p.id}" title="Drop or click to add a reference image (not included when you copy)">
+                <span class="hint">+ image</span>
+                <button class="remove-btn" type="button" title="Remove image">×</button>
+              </div>
               <button class="btn small copy-btn" data-id="${p.id}">Copy</button>
               <button class="btn small ghost edit-btn" data-id="${p.id}">Edit</button>
             </div>
@@ -434,6 +458,115 @@
     });
     main.querySelectorAll('.edit-btn').forEach(btn => {
       btn.addEventListener('click', () => openEditModal(parseInt(btn.dataset.id,10)));
+    });
+    wireImageSlots();
+  }
+
+  // ---- Reference images: stored locally in IndexedDB, per Archive #.
+  // These are for your own visual reference only — the Copy button never includes them.
+  const IMG_DB_NAME = 'promptCompendiumBuilderImages';
+  const IMG_STORE = 'images';
+  let imgDbPromise = null;
+  function getImgDB(){
+    if (imgDbPromise) return imgDbPromise;
+    imgDbPromise = new Promise((resolve, reject) => {
+      const req = indexedDB.open(IMG_DB_NAME, 1);
+      req.onupgradeneeded = () => { req.result.createObjectStore(IMG_STORE); };
+      req.onsuccess = () => resolve(req.result);
+      req.onerror = () => reject(req.error);
+    });
+    return imgDbPromise;
+  }
+  async function saveImageBlob(id, blob){
+    const db = await getImgDB();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction(IMG_STORE, 'readwrite');
+      tx.objectStore(IMG_STORE).put(blob, id);
+      tx.oncomplete = () => resolve();
+      tx.onerror = () => reject(tx.error);
+    });
+  }
+  async function loadImageBlob(id){
+    const db = await getImgDB();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction(IMG_STORE, 'readonly');
+      const req = tx.objectStore(IMG_STORE).get(id);
+      req.onsuccess = () => resolve(req.result || null);
+      req.onerror = () => reject(req.error);
+    });
+  }
+  async function deleteImageBlob(id){
+    const db = await getImgDB();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction(IMG_STORE, 'readwrite');
+      tx.objectStore(IMG_STORE).delete(id);
+      tx.oncomplete = () => resolve();
+      tx.onerror = () => reject(tx.error);
+    });
+  }
+
+  function setSlotImage(slot, blob){
+    const url = URL.createObjectURL(blob);
+    slot.innerHTML = '<img src="' + url + '" alt=""><button class="remove-btn" type="button" title="Remove image">×</button>';
+    slot.classList.add('has-image');
+  }
+  function clearSlotVisual(slot){
+    slot.innerHTML = '<span class="hint">+ image</span><button class="remove-btn" type="button" title="Remove image">×</button>';
+    slot.classList.remove('has-image');
+  }
+
+  const hiddenImgFileInput = document.createElement('input');
+  hiddenImgFileInput.type = 'file';
+  hiddenImgFileInput.accept = 'image/*';
+  hiddenImgFileInput.style.display = 'none';
+  document.body.appendChild(hiddenImgFileInput);
+  let activeSlotForPicker = null;
+
+  hiddenImgFileInput.addEventListener('change', async () => {
+    const file = hiddenImgFileInput.files[0];
+    hiddenImgFileInput.value = '';
+    if (!file || !activeSlotForPicker) return;
+    const id = activeSlotForPicker.getAttribute('data-id');
+    await saveImageBlob(id, file);
+    setSlotImage(activeSlotForPicker, file);
+  });
+
+  function wireImageSlots(){
+    main.querySelectorAll('.img-slot').forEach(slot => {
+      const id = slot.getAttribute('data-id');
+
+      loadImageBlob(id).then(blob => {
+        if (blob) setSlotImage(slot, blob);
+      }).catch(() => {});
+
+      slot.addEventListener('click', (e) => {
+        if (e.target.closest('.remove-btn')) return;
+        if (slot.classList.contains('has-image')){
+          const img = slot.querySelector('img');
+          if (img) window.open(img.src, '_blank');
+          return;
+        }
+        activeSlotForPicker = slot;
+        hiddenImgFileInput.click();
+      });
+
+      slot.addEventListener('dragover', (e) => { e.preventDefault(); slot.classList.add('dragover'); });
+      slot.addEventListener('dragleave', () => slot.classList.remove('dragover'));
+      slot.addEventListener('drop', async (e) => {
+        e.preventDefault();
+        slot.classList.remove('dragover');
+        const file = e.dataTransfer.files && e.dataTransfer.files[0];
+        if (!file || !file.type.startsWith('image/')) return;
+        await saveImageBlob(id, file);
+        setSlotImage(slot, file);
+      });
+
+      slot.addEventListener('click', async (e) => {
+        if (!e.target.closest('.remove-btn')) return;
+        e.stopPropagation();
+        await deleteImageBlob(id);
+        clearSlotVisual(slot);
+      });
     });
   }
 
