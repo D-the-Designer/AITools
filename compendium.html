@@ -9,13 +9,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Nova+Mono&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg: #0d0f0d;
-    --panel: #141712;
-    --panel-border: #2a2f27;
-    --ink: #e7e9e2;
-    --ink-dim: #9aa093;
-    --accent: #c9a34e;
-    --accent-dim: #8a7133;
+    --bg: #030a03;
+    --panel: #061206;
+    --panel-border: #1c3d1c;
+    --ink: #c8ffcf;
+    --ink-dim: #4f8f52;
+    --accent: #33ff33;
+    --accent-dim: #1f9c22;
     --mono: "IBM Plex Mono", "Consolas", "SF Mono", monospace;
     --ocr: "Nova Mono", "OCR A Std", "Consolas", monospace;
     --sans: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
@@ -30,12 +30,20 @@
   }
   body{
     background-image:
-      linear-gradient(180deg, rgba(201,163,78,0.05), transparent 260px),
-      repeating-linear-gradient(0deg, rgba(255,255,255,0.012) 0px, rgba(255,255,255,0.012) 1px, transparent 1px, transparent 3px);
+      linear-gradient(180deg, rgba(51,255,51,0.06), transparent 260px),
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.22) 0px, rgba(0,0,0,0.22) 1px, transparent 1px, transparent 3px);
+  }
+  body::after{
+    content: "";
+    position: fixed; inset: 0; pointer-events: none; z-index: 999;
+    background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.35) 100%);
+  }
+  .eyebrow, .cat-heading h2, .card-n, h1{
+    text-shadow: 0 0 6px rgba(51,255,51,0.45);
   }
   header{
     position: sticky; top:0; z-index: 30;
-    background: rgba(13,15,13,0.94);
+    background: rgba(3,10,3,0.94);
     backdrop-filter: blur(6px);
     border-bottom: 1px solid var(--panel-border);
     padding: 16px 24px 14px;
@@ -263,7 +271,7 @@
     font-size: 8.5px; color: var(--ink-dim); font-family: var(--mono);
     text-align: center; line-height: 1.3; padding: 2px; pointer-events: none;
   }
-  .img-slot.dragover{ border-color: var(--accent); background: rgba(201,163,78,0.1); }
+  .img-slot.dragover{ border-color: var(--accent); background: rgba(51,255,51,0.12); }
   .img-slot .remove-btn{
     position: absolute; top: 2px; right: 2px;
     width: 16px; height: 16px; border-radius: 50%;
@@ -286,11 +294,11 @@
     cursor: pointer;
     transition: background 0.15s ease, color 0.15s ease;
   }
-  button.copy-btn:hover{ background: var(--accent-dim); color: #0d0f0d; }
+  button.copy-btn:hover{ background: var(--accent-dim); color: var(--bg); }
   button.copy-btn.copied{
     background: var(--accent);
     border-color: var(--accent);
-    color: #0d0f0d;
+    color: var(--bg);
   }
   pre.card-text{
     margin: 0;
@@ -298,7 +306,7 @@
     font-family: var(--mono);
     font-size: 12.5px;
     line-height: 1.55;
-    color: #cfd3c8;
+    color: #a8e6ac;
     white-space: pre-wrap;
     word-break: break-word;
     max-height: 340px;

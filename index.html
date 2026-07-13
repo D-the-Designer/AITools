@@ -9,13 +9,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Nova+Mono&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg: #0d0f0d;
-    --panel: #141712;
-    --panel-border: #2a2f27;
-    --ink: #e7e9e2;
-    --ink-dim: #9aa093;
-    --accent: #c9a34e;
-    --accent-dim: #8a7133;
+    --bg: #030a03;
+    --panel: #061206;
+    --panel-border: #1c3d1c;
+    --ink: #c8ffcf;
+    --ink-dim: #4f8f52;
+    --accent: #33ff33;
+    --accent-dim: #1f9c22;
     --danger: #b0524a;
     --mono: "IBM Plex Mono", "Consolas", "SF Mono", monospace;
     --ocr: "Nova Mono", "OCR A Std", "Consolas", monospace;
@@ -26,12 +26,20 @@
   html,body{ margin:0; padding:0; background: var(--bg); color: var(--ink); font-family: var(--sans); }
   body{
     background-image:
-      linear-gradient(180deg, rgba(201,163,78,0.05), transparent 260px),
-      repeating-linear-gradient(0deg, rgba(255,255,255,0.012) 0px, rgba(255,255,255,0.012) 1px, transparent 1px, transparent 3px);
+      linear-gradient(180deg, rgba(51,255,51,0.06), transparent 260px),
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.22) 0px, rgba(0,0,0,0.22) 1px, transparent 1px, transparent 3px);
+  }
+  body::after{
+    content: "";
+    position: fixed; inset: 0; pointer-events: none; z-index: 999;
+    background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.35) 100%);
+  }
+  .eyebrow, .cat-heading h2, .card-n, h1{
+    text-shadow: 0 0 6px rgba(51,255,51,0.45);
   }
   header{
     position: sticky; top:0; z-index: 30;
-    background: rgba(13,15,13,0.94);
+    background: rgba(3,10,3,0.94);
     backdrop-filter: blur(6px);
     border-bottom: 1px solid var(--panel-border);
     padding: 16px 24px 14px;
@@ -48,7 +56,7 @@
   .sub{ margin: 0 0 14px; font-size: 12.5px; color: var(--ink-dim); }
   .nudge{
     display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
-    background: rgba(201,163,78,0.08); border: 1px solid var(--accent-dim);
+    background: rgba(51,255,51,0.1); border: 1px solid var(--accent-dim);
     border-radius: 4px; padding: 8px 12px; margin-bottom: 12px;
     font-family: var(--mono); font-size: 12px; color: var(--ink);
   }
@@ -78,14 +86,14 @@
     font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.03em; text-transform: uppercase;
     padding: 9px 13px; border-radius: 3px; transition: background 0.15s ease, color 0.15s ease; white-space: nowrap;
   }
-  .btn:hover{ background: var(--accent-dim); color: #0d0f0d; }
-  .btn.primary{ background: var(--accent); color: #0d0f0d; border-color: var(--accent); }
+  .btn:hover{ background: var(--accent-dim); color: var(--bg); }
+  .btn.primary{ background: var(--accent); color: var(--bg); border-color: var(--accent); }
   .btn.primary:hover{ background: #ddb85e; }
   .btn.small{ padding: 5px 9px; font-size: 10px; }
   .btn.ghost{ border-color: var(--panel-border); color: var(--ink-dim); }
   .btn.ghost:hover{ background: var(--panel-border); color: var(--ink); }
   .btn.danger{ border-color: var(--danger); color: var(--danger); }
-  .btn.danger:hover{ background: var(--danger); color: #0d0f0d; }
+  .btn.danger:hover{ background: var(--danger); color: var(--bg); }
 
   .layout{ display: flex; align-items: flex-start; max-width: 1240px; margin: 0 auto; }
   nav.toc{
@@ -137,14 +145,14 @@
   .img-slot.has-image{ border-style: solid; border-color: var(--panel-border); }
   .img-slot img{ width: 100%; height: 100%; object-fit: cover; display: block; }
   .img-slot .hint{ font-size: 8px; color: var(--ink-dim); font-family: var(--mono); text-align: center; line-height: 1.2; padding: 2px; pointer-events: none; }
-  .img-slot.dragover{ border-color: var(--accent); background: rgba(201,163,78,0.1); }
+  .img-slot.dragover{ border-color: var(--accent); background: rgba(51,255,51,0.12); }
   .img-slot .remove-btn{
     position: absolute; top: 2px; right: 2px; width: 16px; height: 16px; border-radius: 50%;
     background: rgba(0,0,0,0.75); color: #fff; border: none; font-size: 11px; line-height: 1;
     cursor: pointer; display: none; align-items: center; justify-content: center; padding: 0;
   }
   .img-slot.has-image:hover .remove-btn{ display: flex; }
-  pre.card-text{ margin: 0; padding: 14px; font-family: var(--mono); font-size: 12.5px; line-height: 1.55; color: #cfd3c8; white-space: pre-wrap; word-break: break-word; max-height: 340px; overflow-y: auto; }
+  pre.card-text{ margin: 0; padding: 14px; font-family: var(--mono); font-size: 12.5px; line-height: 1.55; color: #a8e6ac; white-space: pre-wrap; word-break: break-word; max-height: 340px; overflow-y: auto; }
   .card-text::-webkit-scrollbar{ width: 8px; }
   .card-text::-webkit-scrollbar-thumb{ background: var(--panel-border); border-radius: 4px; }
   .empty{ font-family: var(--mono); color: var(--ink-dim); padding: 60px 20px; text-align: center; font-size: 13px; line-height: 1.8; }
