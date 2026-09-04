@@ -6791,4 +6791,15 @@ Constraints: wolf pack is NEVER smoke, mist, or vapor — it has mass, weight, d
 
 1970s–80s pulp science-fiction illustration with vintage toy-advertisement and boxed-game-art aesthetics. Hyper-saturated color, dramatic airbrushed gradients, bold comic-book linework, flat graphic shadows, slick irregular organic surface treatment, and lurid internal bioluminescent lighting. Deep violet and acid green illumination casting sickly colored shadows. Palette of safety orange, electric violet, toxic green, chrome yellow, and deep space black. Existential dread expressed through the visual language of children's entertainment. Dramatic Dutch-angle camera composition with a strongly tilted frame and precarious visual tension. No text, logos, labels, or lettering.`},
 
+{model:"Unspecified", attribution:null, subject:"Distressed pulp sci-fi paperback screenprint style — spot-color halftone, worn-paper decay, no subject", text:
+`[art style]
+
+Square 1:1 mid-century to late-1970s pulp science-fiction paperback aesthetic, rendered as a distressed mass-produced print artifact rather than polished digital artwork. Straight-on, centered, symmetrical framing with minimal perspective distortion and no tilt. Strong central vertical hierarchy with oversized, tall condensed block-serif typography, smaller arched secondary lettering, and bold graphic negative space.
+
+Restricted spot-color palette: deep matte black, aged bone cream, saturated hot magenta, dark crimson, dark teal-blue, restrained cyan accents, and scuffed paper white. High-contrast value structure with flat black fields, hard cream edge highlights, and color contrast instead of modern glow or bloom.
+
+Screenprint/posterized color separations, heavy black ink, rough ink trapping, slight registration offset, coarse halftone dots, stippled gradients, bold contour lines, dry-brush wear, scratchy paper distress, faded pigment, chipped printing, rubbed edges, abraded corners, scratched varnish, small stains, worn fibers, and uneven vintage ink density. Include conspicuous localized abrasion and edge scraping for authentic handled-paper decay.
+
+Use simplified graphic shapes, rigid geometric structure contrasted with thick looping organic curves, rounded spiral forms, tapering ends, hard silhouettes, sparse star-like point marks, and intentionally imperfect hand-lettered print character. Keep fine detail subordinate to strong thumbnail readability.`},
+
 ];
