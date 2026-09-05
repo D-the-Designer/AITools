@@ -6835,4 +6835,15 @@ Soft diffused studio lighting with gentle directional modeling, controlled shado
 
 Avoid neon color, modern high-gloss CGI, extreme depth of field, dramatic cinematic grading, cluttered backgrounds, or contemporary minimalist product-render styling.`},
 
+{model:"Unspecified", attribution:null, subject:"Gritty 1970s-80s sci-fi horror paperback style — underground-comic ink, magenta/acid-green accents, no subject", text:
+`[art style]
+
+Ultra-wide cinematic banner composition with a frontal-to-slight three-quarter viewpoint, medium-close framing, strong asymmetrical balance, and broad negative space for graphic hierarchy. Gritty 1970s–1980s science-fiction horror paperback aesthetic blending painted realism with underground-comic illustration.
+
+Thick black ink contours, scratchy crosshatching, dry-brush texture, distressed offset-print grain, subtle halftone, paper wear, faded registration, and analog reproduction artifacts. Dark palette of charcoal, black, dirty teal, oxidized blue-green, and aged cream, punctuated by intense hot magenta, acid yellow-green, and warm orange highlights.
+
+Low-key lighting with cold cyan rim accents, deep black recesses, restrained specular glints, and faint atmospheric haze. Add sweeping curvilinear graphic motifs, rough screen-print texture, slight color bleed, and worn vintage poster character.
+
+Avoid readable text, logos, glossy CGI, clean vector art, smooth digital polish, pastel color, or pristine contemporary surfaces.`},
+
 ];
