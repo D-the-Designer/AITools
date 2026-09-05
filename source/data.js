@@ -6846,4 +6846,15 @@ Low-key lighting with cold cyan rim accents, deep black recesses, restrained spe
 
 Avoid readable text, logos, glossy CGI, clean vector art, smooth digital polish, pastel color, or pristine contemporary surfaces.`},
 
+{model:"Unspecified", attribution:null, subject:"Art Deco / Streamline Moderne retro-futurist paperback style — peach/coral/turquoise palette, no subject", text:
+`[art style]
+
+Square 1:1 retro-futurist illustration with a frontal, slightly elevated medium-wide viewpoint, deep layered perspective, and balanced asymmetry. Hand-painted mid-century science-fiction and fantasy paperback aesthetic with Art Deco and Streamline Moderne design language, crisp ink contours, gouache-like opaque color, soft airbrushed gradients, fine architectural linework, and subtle vintage print grain.
+
+Palette dominated by warm peach, coral, dusty orange, turquoise, teal, muted blue, cream, and small deep-violet accents. Soft golden atmospheric lighting with gentle rim highlights, luminous haze, and restrained shadow contrast.
+
+Use elegant vertical geometry, sweeping circular forms, stepped perspective, decorative organic curves, and distant forms softened by atmospheric depth. Preserve a refined, optimistic, dreamlike retro-future mood with tactile paper texture and slightly faded reproduction color.
+
+Avoid photorealism, glossy CGI, neon cyberpunk saturation, heavy grunge, shallow depth of field, clean modern minimalism, or polished digital smoothness.`},
+
 ];
