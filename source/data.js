@@ -6824,4 +6824,15 @@ Keep the image intentionally raw, abrasive, analog, and imperfect, like an under
 
 Avoid photorealism, glossy CGI, smooth digital painting, clean typography, polished vector edges, soft pastel color, neat gradients, pristine paper, or refined symmetry.`},
 
+{model:"Unspecified", attribution:null, subject:"1970s consumer-electronics catalog photography style — mustard/charcoal/cream palette, no subject", text:
+`[art style]
+
+Retro 1970s consumer-electronics advertising aesthetic with clean studio photography, restrained editorial composition, and a minimal off-white print layout. Frontal eye-level camera, medium-close framing, shallow-to-moderate depth of field, and carefully balanced negative space.
+
+Warm mustard-yellow, charcoal black, muted gray, cream, and natural skin-tone-inspired color harmony, with soft analog contrast and slightly faded vintage reproduction character. Smooth molded-plastic surfaces, matte finishes, subtle specular highlights, and crisp industrial-design detailing.
+
+Soft diffused studio lighting with gentle directional modeling, controlled shadows, and subdued background falloff. Add fine 35mm-style grain, slight halation, mild print softness, and understated late-1960s to mid-1970s catalog-photography realism. Keep the overall presentation elegant, functional, and period-authentic rather than futuristic or glossy.
+
+Avoid neon color, modern high-gloss CGI, extreme depth of field, dramatic cinematic grading, cluttered backgrounds, or contemporary minimalist product-render styling.`},
+
 ];
