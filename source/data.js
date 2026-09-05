@@ -6813,4 +6813,15 @@ Add a pale off-white printed border with rounded clipped corners and slight vint
 
 Avoid photorealism, gritty industrial texture, dark monochrome palettes, flat vector art, heavy ink outlines, excessive neon saturation, extreme wide-angle distortion, or shallow depth of field.`},
 
+{model:"Unspecified", attribution:null, subject:"Underground punk-zine horror collage style — photocopied xerox grain, blood-red brush drips, no subject", text:
+`[art style]
+
+Square 1:1 composition with a frontal, flat poster-like viewpoint, centered visual hierarchy, minimal perspective depth, and dense layered repetition across the lower half. Gritty mixed-media horror-punk collage style combining photocopied newspaper textures, torn paper, rough charcoal drawing, scratchy black ink, dry-brush acrylic, smeared pigment, and distressed xerox grain.
+
+High-contrast palette restricted to dirty beige, newsprint gray, deep black, chalky white, and aggressive blood-red accents. Use crude hand-painted red brush marks and vertical paint drips across the upper field, with irregular edges, splatter, streaking, and uneven opacity. Strong black-and-white graphic silhouettes, harsh white edge separation, coarse crosshatching, scumbled shadows, scratched lines, paper wrinkles, ripped seams, and layered paste-up artifacts.
+
+Keep the image intentionally raw, abrasive, analog, and imperfect, like an underground 1980s punk zine or distressed pulp poster.
+
+Avoid photorealism, glossy CGI, smooth digital painting, clean typography, polished vector edges, soft pastel color, neat gradients, pristine paper, or refined symmetry.`},
+
 ];
