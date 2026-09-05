@@ -6802,4 +6802,15 @@ Screenprint/posterized color separations, heavy black ink, rough ink trapping, s
 
 Use simplified graphic shapes, rigid geometric structure contrasted with thick looping organic curves, rounded spiral forms, tapering ends, hard silhouettes, sparse star-like point marks, and intentionally imperfect hand-lettered print character. Keep fine detail subordinate to strong thumbnail readability.`},
 
+{model:"Unspecified", attribution:null, subject:"Symmetrical 1980s airbrushed paperback style — one-point perspective, lavender/violet/cyan palette, no subject", text:
+`[art style]
+
+Vertical retro-futurist science-fiction illustration with a strongly centered, frontal composition, near-perfect axial symmetry, and a pronounced one-point perspective converging toward the middle of the frame. Slightly low-to-eye-level viewpoint with elongated depth lines and a tall poster-like crop. Polished 1980s paperback-cover and airbrushed concept-art aesthetic, combining clean illustrative realism with soft painted gradients, crisp edge highlights, glossy reflective surfaces, subtle brush texture, and restrained analog print grain.
+
+Dominant palette of lavender, violet, magenta, deep indigo, icy cyan, luminous white, and small warm peach highlights. Bright linear illumination creates glowing edge bands, soft bloom, reflective streaks, and cool rim light against deep saturated shadows. Maintain high clarity in the central area with moderate depth throughout, symmetrical geometric repetition, luminous atmospheric speckling, and a sleek dreamlike mood.
+
+Add a pale off-white printed border with rounded clipped corners and slight vintage wear.
+
+Avoid photorealism, gritty industrial texture, dark monochrome palettes, flat vector art, heavy ink outlines, excessive neon saturation, extreme wide-angle distortion, or shallow depth of field.`},
+
 ];
