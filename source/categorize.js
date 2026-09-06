@@ -49,6 +49,30 @@ function has(text, ...needles) {
   return needles.some((n) => t.includes(n));
 }
 
+// Like has(), but ignores a match if it's immediately preceded (within the same clause) by a
+// negation word — "no anime", "avoid ... anime", "not X" etc. Needed because prompts routinely
+// list unwanted styles in a "DO NOT INCLUDE" section, and a bare substring check treats that
+// negative mention the same as a real positive request for that style.
+function hasUnnegated(text, ...needles) {
+  const t = text.toLowerCase();
+  const NEGATION = /\b(no|not|non|nor|avoid|without|never)\b/;
+  return needles.some((n) => {
+    let idx = t.indexOf(n);
+    while (idx !== -1) {
+      // Look back to the previous real sentence boundary (period or newline) — semicolons and
+      // commas don't count, since a "DO NOT INCLUDE: a; b; c" list uses them within one clause.
+      let start = 0;
+      for (let j = idx - 1; j >= 0; j--) {
+        if (t[j] === "." || t[j] === "\n") { start = j + 1; break; }
+      }
+      const before = t.slice(start, idx);
+      if (!NEGATION.test(before)) return true;
+      idx = t.indexOf(n, idx + 1);
+    }
+    return false;
+  });
+}
+
 function isPlaceholderTemplate(text) {
   const cleaned = text.replace(/\[redacted ip\]/gi, "").replace(/\[public figure redacted\]/gi, "");
   return /\[[A-Za-z][A-Za-z0-9_ ]{1,30}\]/.test(cleaned) || /\{[A-Za-z][A-Za-z0-9_ ]{1,30}\}/.test(cleaned);
@@ -132,7 +156,7 @@ function isFashion(text) {
 }
 
 function isAnime(text) {
-  return has(text, "anime", "manga", "ghibli", "studio ghibli");
+  return hasUnnegated(text, "anime", "manga", "ghibli", "studio ghibli");
 }
 
 function isAnimationStyle(text) {

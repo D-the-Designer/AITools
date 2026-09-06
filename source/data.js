@@ -6857,4 +6857,47 @@ Use elegant vertical geometry, sweeping circular forms, stepped perspective, dec
 
 Avoid photorealism, glossy CGI, neon cyberpunk saturation, heavy grunge, shallow depth of field, clean modern minimalism, or polished digital smoothness.`},
 
+{model:"Nano Banana 2", attribution:null, subject:"Flat-color caricature character design from a photo — Western animated-series style, exaggerated proportions", text:
+`Nano Banana 2 Prompt share
+
+Prompt: Create a CHARACTER DESIGN based on the photograph for a modern Western animated series — a chest-up portrait. This is NOT a realistic portrait and not a careful redraw: it is a stylized cartoon character inspired by a specific person. Recognizability should come from distinctive features and accessories, not photographic accuracy.
+
+SIMPLIFICATION IS THE MOST IMPORTANT THING. Remove everything from the face except what matters most. No gradients, midtones, transparency, soft blending, or fine rendering. Every surface must be filled with FLAT color:
+
+* Skin — EXACTLY TWO tones: base color and shadow, no third tone;
+* Hair — EXACTLY TWO tones: base color and shadow;
+* Clothing — two, maximum three tones.
+
+The boundary between light and shadow must be a sharp, angular line, as if cut out with scissors. Shadows must be a rich, dark version of the same color, never gray.
+
+FEATURES MUST BE STRONGLY EXAGGERATED — this is a caricature, not a portrait. Proportions should be intentionally distorted; that is the essence of the style:
+
+* The HEAD should be approximately one and a half times larger than anatomically correct relative to the shoulders and occupy most of the frame;
+* The NECK should be noticeably thinner and longer than in real life;
+* The SHOULDERS should be narrow, simplified with straight angular lines, without realistic anatomy;
+* The MOUTH AND FACIAL EXPRESSION must match the photograph. If the person is smiling, the character smiles exactly the same way: subtle if subtle, broad if broad. Do not stretch the smile or add one if there isn't one;
+* The NOSE should be tiny, simplified into two or three lines, with no detailed nostrils;
+* The EYES should be large and almond-shaped, with large irises; eyelashes should consist of only three or four strokes;
+* The EYEBROWS should be thick, solid shapes positioned high above the eyes.
+
+Exaggerate the PROPORTIONS and simplify the forms — but do not change the facial expression. The face should read as an animated series character, not simply as a person who looks similar.
+
+HAIR should consist of two or three LARGE, SOLID MASSES with sharp angular edges, as if cut from paper. No individually drawn hairs, no thin strands, and no gradients within the hair masses. The hairstyle, parting, and length must come from the photograph.
+
+TAKE FROM THE PHOTOGRAPH: hair color and texture, parting and length; skin tone; eye color; neckline, style, and color of clothing; age; and facial expression. These are the identifying features and must be preserved. However, facial and head proportions should NOT be copied — they must be exaggerated according to the rules above.
+
+ACCESSORIES — ONLY THOSE PRESENT IN THE PHOTOGRAPH. Do not add anything: no glasses if there are no glasses, no earrings if there are no earrings, no necklace if there isn't one. Any accessories genuinely present should be drawn larger and more noticeable than in real life and emphasized, as they help identify the character. If the person is holding an object rather than wearing it, it should remain in their hand or be left out of the frame entirely — never move it onto the face.
+
+OUTLINE — dark burgundy or dark brown, NOT black. Use variable line thickness: thicker around the outer silhouette, thinner inside, and disappearing entirely in some areas where shapes are defined by the meeting of two flat colors.
+
+ACCENTS. Add a warm blush as a flat shape on the cheeks and tip of the nose. Include one bright highlight in a simple geometric shape on the forehead. Metal should be rendered as dense gold flat shapes with sharp, straight highlights.
+
+BACKGROUND. Behind the head, place one flat polygon in a saturated color, rotated slightly, with straight edges, as if it were a sheet of colored paper placed behind the character. The head and shoulders should partially overlap it, with parts of the figure extending beyond its edges. Surround everything with a clean white background. No gradients, patterns, or textures.
+
+PALETTE should be limited to three or four colors, but the COLORS MUST BE RICH AND HIGHLY SATURATED. Every shade should be at maximum saturation: clothing, background shape, and hair should feel bold and vivid, like paint straight from a can rather than muted pastels. Skin should feel warm and alive, with noticeable blush. The background shape should use a clean, open color that contrasts with the main accent color in the person's appearance. No faded, dusty, washed-out, or desaturated palette.
+
+COMPOSITION. Chest-up portrait: head, neck, shoulders, and upper chest. The head occupies most of the frame, turned in a three-quarter view, with the eyes looking toward the camera.
+
+DO NOT INCLUDE: faded, dusty, washed-out, or pastel colors; photorealism; digital painting; realistic portraiture; soft blended shadows; gradients; transparency; midtones; individually rendered hair strands; detailed skin with pores or wrinkles; volumetric facial modeling; 3D rendering; anime; uniform black outlines; anatomically accurate head and shoulder proportions; a carefully realistic portrait-style nose; ADDED accessories not present in the photograph; glasses on a person who does not wear glasses in the photo; altered facial expression; a stretched smile where none existed; missing accessories that are present in the photograph; paper or canvas texture; noise; any text, letters, captions, logos, or watermarks in the image.`},
+
 ];
