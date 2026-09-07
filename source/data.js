@@ -7090,4 +7090,9 @@ compatible light and shadow;
 no prestige filler;
 valid parameter suffix.`},
 
+{model:"Unspecified", attribution:"Amira Zairi (@azed_ai)", subject:"Risograph Minimalism — [subject]/[color1]/[color2] template (limited-ink halftone print)", text:
+`Prompt share: Risograph Minimalism
+
+Prompt: Risograph print illustration of a [subject], clean white background, limited [color1] and [color2] ink palette, minimalist composition, simplified silhouette, coarse halftone texture, imperfect ink registration, subtle paper grain, bold graphic shapes, contemporary editorial print aesthetic, crisp focal form.`},
+
 ];
