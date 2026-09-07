@@ -7095,4 +7095,14 @@ valid parameter suffix.`},
 
 Prompt: Risograph print illustration of a [subject], clean white background, limited [color1] and [color2] ink palette, minimalist composition, simplified silhouette, coarse halftone texture, imperfect ink registration, subtle paper grain, bold graphic shapes, contemporary editorial print aesthetic, crisp focal form.`},
 
+{model:"Unspecified (shared via X / @shikoba_86, tagging @magnific)", attribution:"Marco \"Shikoba\" Riccetti (@shikoba_86)", subject:"Sodium Noir Cinema — [SUBJECT]/[LOCATION] template (amber sodium-vapor night photography)", text:
+`PROMPT SHARE
+Sodium Noir Cinema
+
+Sodium light can give night scenes an instantly recognizable atmosphere. Dense amber practicals, near black shadows, wet surfaces and small traces of cold ambient light create a visual language that works across streets, vehicles, interiors or more surreal situations without falling into the usual cinematic night look.
+
+Prompt:
+
+[SUBJECT] in [LOCATION], nocturnal cinematic photography driven by sodium-vapor practical lighting, dense amber highlights against sparse cold blue ambient light, deep near-black shadows, wet reflective surfaces, suspended atmospheric haze, restrained saturation, soft highlight bloom, imperfect anamorphic lens response, subtle 35mm grain, layered foreground obstruction and strong spatial separation, natural exposure roll-off, no glossy CGI finish.`},
+
 ];
