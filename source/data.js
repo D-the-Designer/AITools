@@ -7105,4 +7105,9 @@ Prompt:
 
 [SUBJECT] in [LOCATION], nocturnal cinematic photography driven by sodium-vapor practical lighting, dense amber highlights against sparse cold blue ambient light, deep near-black shadows, wet reflective surfaces, suspended atmospheric haze, restrained saturation, soft highlight bloom, imperfect anamorphic lens response, subtle 35mm grain, layered foreground obstruction and strong spatial separation, natural exposure roll-off, no glossy CGI finish.`},
 
+{model:"Unspecified", attribution:null, subject:"Eccentric studio yearbook portrait — [PERSON]/[HAIRSTYLE]/[EXPRESSION]/[CLOTHING] template", text:
+`PROMPT:
+
+Professional studio yearbook portrait of a [PERSON] with exaggerated facial features, [FACE], an extremely unusual [HAIRSTYLE], and a [EXPRESSION] expression. Wearing [CLOTHING] in [COLORS], photographed against a solid [COLOR] studio backdrop. Eccentric fictional character, awkward retro styling, realistic skin texture, sharp facial detail, direct portrait framing, subtly comedic tone. 4:5`},
+
 ];
