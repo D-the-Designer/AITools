@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prompt Compendium Builder — make your own</title>
+<style>
+  @font-face{
+    font-family: 'OCR A Std';
+    src: url(data:font/otf;base64,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) format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  :root{
+    --bg: #030a03;
+    --panel: #061206;
+    --panel-border: #1c3d1c;
+    --ink: #c8ffcf;
+    --ink-dim: #4f8f52;
+    --accent: #33ff33;
+    --accent-dim: #1f9c22;
+    --danger: #b0524a;
+    --mono: "OCR A Std", "Consolas", "SF Mono", monospace;
+    --ocr: "OCR A Std", "Consolas", "SF Mono", monospace;
+    --sans: "OCR A Std", "Helvetica Neue", Arial, sans-serif;
+    --sidebar-w: 300px;
+  }
+  * { box-sizing: border-box; }
+  html,body{ margin:0; padding:0; background: var(--bg); color: var(--ink); font-family: var(--sans); }
+  body{
+    background-image:
+      linear-gradient(180deg, rgba(51,255,51,0.06), transparent 260px),
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.22) 0px, rgba(0,0,0,0.22) 1px, transparent 1px, transparent 3px);
+  }
+  body::after{
+    content: "";
+    position: fixed; inset: 0; pointer-events: none; z-index: 999;
+    background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.35) 100%);
+  }
+  .eyebrow, .cat-heading h2, .card-n, h1{
+    text-shadow: 0 0 6px rgba(51,255,51,0.45);
+  }
+  header{
+    position: sticky; top:0; z-index: 30;
+    background: rgba(3,10,3,0.94);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--panel-border);
+    padding: 16px 24px 14px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .toc-toggle{
+    display: none; background: var(--panel); border: 1px solid var(--panel-border);
+    color: var(--ink); font-family: var(--mono); font-size: 12px; padding: 9px 12px;
+    border-radius: 3px; cursor: pointer; flex: 0 0 auto;
+  }
+  .header-main{ flex: 1 1 auto; min-width: 0; }
+  .eyebrow{ font-family: var(--ocr); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin: 0 0 6px; }
+  h1{ margin: 0 0 4px; font-size: 21px; font-weight: 600; letter-spacing: -0.01em; }
+  .sub{ margin: 0 0 14px; font-size: 12.5px; color: var(--ink-dim); }
+  .nudge{
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    background: rgba(51,255,51,0.1); border: 1px solid var(--accent-dim);
+    border-radius: 4px; padding: 8px 12px; margin-bottom: 12px;
+    font-family: var(--mono); font-size: 12px; color: var(--ink);
+  }
+  .bulk-item{
+    display: flex; gap: 10px; align-items: flex-start;
+    padding: 10px 12px; border-bottom: 1px solid var(--panel-border);
+  }
+  .bulk-item:last-child{ border-bottom: none; }
+  .bulk-item input[type="checkbox"]{ margin-top: 3px; flex: 0 0 auto; }
+  .bulk-item-body{ flex: 1 1 auto; min-width: 0; }
+  .bulk-item-subject{ font-size: 13px; margin-bottom: 4px; }
+  .bulk-item-meta{ font-family: var(--mono); font-size: 10.5px; color: var(--ink-dim); display: flex; gap: 10px; flex-wrap: wrap; }
+  .bulk-item-meta select, .bulk-item-meta input{ font-size: 10.5px; padding: 3px 6px; }
+  .bulk-item-preview{ font-family: var(--mono); font-size: 10.5px; color: var(--ink-dim); margin-top: 4px; max-height: 40px; overflow: hidden; }
+  .controls{ display:flex; gap:10px; flex-wrap: wrap; align-items:center; }
+  input[type="search"], input[type="text"], textarea, select{
+    background: var(--panel); border: 1px solid var(--panel-border); color: var(--ink);
+    padding: 9px 11px; border-radius: 3px; font-family: var(--mono); font-size: 13px; outline: none;
+  }
+  input[type="search"]{ flex: 1 1 240px; min-width: 180px; }
+  input:focus, textarea:focus, select:focus{ border-color: var(--accent-dim); }
+  select{ font-size: 12.5px; max-width: 260px; }
+  .count{ font-family: var(--mono); font-size: 12px; color: var(--ink-dim); white-space: nowrap; padding-left: 4px; }
+  button{ font-family: var(--sans); cursor: pointer; }
+  .btn{
+    background: transparent; border: 1px solid var(--accent-dim); color: var(--accent);
+    font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.03em; text-transform: uppercase;
+    padding: 9px 13px; border-radius: 3px; transition: background 0.15s ease, color 0.15s ease; white-space: nowrap;
+  }
+  .btn:hover{ background: var(--accent-dim); color: var(--bg); }
+  .btn.primary{ background: var(--accent); color: var(--bg); border-color: var(--accent); }
+  .btn.primary:hover{ background: #ddb85e; }
+  .btn.small{ padding: 5px 9px; font-size: 10px; }
+  .btn.ghost{ border-color: var(--panel-border); color: var(--ink-dim); }
+  .btn.ghost:hover{ background: var(--panel-border); color: var(--ink); }
+  .btn.danger{ border-color: var(--danger); color: var(--danger); }
+  .btn.danger:hover{ background: var(--danger); color: var(--bg); }
+
+  .layout{ display: flex; align-items: flex-start; max-width: 1240px; margin: 0 auto; }
+  nav.toc{
+    position: sticky; top: 89px; flex: 0 0 var(--sidebar-w); width: var(--sidebar-w);
+    max-height: calc(100vh - 89px); overflow-y: auto; padding: 20px 14px 40px 24px;
+    border-right: 1px solid var(--panel-border);
+  }
+  nav.toc::-webkit-scrollbar{ width: 8px; }
+  nav.toc::-webkit-scrollbar-thumb{ background: var(--panel-border); border-radius: 4px; }
+  .toc-title{ font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-dim); margin: 0 0 10px; }
+  .toc-cat-btn{
+    width: 100%; display:flex; justify-content: space-between; align-items:center; gap: 8px;
+    background: none; border: none; color: var(--ink); text-align: left; font-family: var(--sans);
+    font-size: 12.5px; line-height: 1.35; padding: 7px 6px; border-radius: 3px; cursor: pointer;
+  }
+  .toc-cat-btn:hover{ background: var(--panel); }
+  .toc-cat-btn .n{ color: var(--accent); font-family: var(--mono); font-size: 11px; flex: 0 0 auto; }
+  .toc-cat-btn .arrow{ color: var(--ink-dim); font-size: 10px; flex: 0 0 auto; transition: transform 0.15s ease; }
+  .toc-cat.open .toc-cat-btn .arrow{ transform: rotate(90deg); }
+  .toc-entries{ display: none; list-style: none; margin: 0 0 6px; padding: 0 0 0 10px; border-left: 1px solid var(--panel-border); }
+  .toc-cat.open .toc-entries{ display: block; }
+  .toc-entries li a{ display: block; padding: 5px 8px; font-family: var(--mono); font-size: 11px; color: var(--ink-dim); text-decoration: none; line-height: 1.4; border-radius: 3px; }
+  .toc-entries li a:hover{ color: var(--ink); background: var(--panel); }
+
+  main{ flex: 1 1 auto; min-width: 0; max-width: 900px; margin: 0 auto; padding: 24px 28px 100px; }
+  .cat-heading{ display: flex; align-items: baseline; gap: 10px; margin: 34px 0 4px; padding-top: 6px; scroll-margin-top: 96px; }
+  .cat-heading:first-child{ margin-top: 0; }
+  .cat-heading h2{ margin: 0; font-size: 17px; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase; font-family: var(--ocr); color: var(--accent); }
+  .cat-heading .cat-count{ font-family: var(--mono); font-size: 11px; color: var(--ink-dim); }
+  .cat-rule{ border: none; border-top: 1px solid var(--panel-border); margin: 8px 0 18px; }
+
+  .card{ background: var(--panel); border: 1px solid var(--panel-border); border-radius: 4px; margin-bottom: 14px; overflow: hidden; scroll-margin-top: 96px; }
+  .card-head{ display:flex; align-items:flex-start; justify-content: space-between; gap: 12px; padding: 12px 14px 10px; border-bottom: 1px solid var(--panel-border); }
+  .card-meta{ min-width: 0; }
+  .card-n{ font-family: var(--ocr); font-size: 10px; color: var(--accent); letter-spacing: 0.1em; }
+  .card-model{ font-family: var(--mono); font-size: 11px; color: var(--ink-dim); margin: 2px 0 4px; }
+  .card-subject{ font-size: 13.5px; line-height: 1.35; color: var(--ink); }
+  .card-actions{ display: flex; gap: 6px; flex: 0 0 auto; align-items: center; }
+  .img-slot{
+    width: 48px; height: 48px;
+    border: 1px dashed var(--panel-border);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; position: relative; overflow: hidden;
+    background: var(--bg); transition: border-color 0.15s ease, background 0.15s ease;
+    flex: 0 0 auto;
+  }
+  .img-slot:hover{ border-color: var(--accent-dim); }
+  .img-slot.has-image{ border-style: solid; border-color: var(--panel-border); }
+  .img-slot img{ width: 100%; height: 100%; object-fit: cover; display: block; }
+  .img-slot .hint{ font-size: 8px; color: var(--ink-dim); font-family: var(--mono); text-align: center; line-height: 1.2; padding: 2px; pointer-events: none; }
+  .img-slot.dragover{ border-color: var(--accent); background: rgba(51,255,51,0.12); }
+  .img-slot .remove-btn{
+    position: absolute; top: 2px; right: 2px; width: 16px; height: 16px; border-radius: 50%;
+    background: rgba(0,0,0,0.75); color: #fff; border: none; font-size: 11px; line-height: 1;
+    cursor: pointer; display: none; align-items: center; justify-content: center; padding: 0;
+  }
+  .img-slot.has-image:hover .remove-btn{ display: flex; }
+  pre.card-text{ margin: 0; padding: 14px; font-family: var(--mono); font-size: 12.5px; line-height: 1.55; color: #a8e6ac; white-space: pre-wrap; word-break: break-word; max-height: 340px; overflow-y: auto; }
+  .card-text::-webkit-scrollbar{ width: 8px; }
+  .card-text::-webkit-scrollbar-thumb{ background: var(--panel-border); border-radius: 4px; }
+  .empty{ font-family: var(--mono); color: var(--ink-dim); padding: 60px 20px; text-align: center; font-size: 13px; line-height: 1.8; }
+  .empty .btn{ margin-top: 14px; }
+
+  footer{ max-width: 900px; margin: 0 auto; padding: 0 28px 60px; font-family: var(--mono); font-size: 11px; color: var(--ink-dim); }
+  footer .credit{ display: block; margin-top: 8px; font-family: var(--ocr); font-size: 11px; letter-spacing: 0.05em; }
+  footer .credit a{ color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-dim); }
+  footer .credit a:hover{ border-bottom-color: var(--accent); }
+
+  /* Modal */
+  .overlay{ position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 50; display: none; align-items: flex-start; justify-content: center; padding: 40px 16px; overflow-y: auto; }
+  .overlay.show{ display: flex; }
+  .modal{ background: var(--panel); border: 1px solid var(--panel-border); border-radius: 6px; width: 100%; max-width: 640px; padding: 22px 24px; }
+  .modal h3{ margin: 0 0 16px; font-size: 16px; }
+  .field{ margin-bottom: 14px; }
+  .field label{ display:block; font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-dim); margin-bottom: 6px; }
+  .field input, .field select, .field textarea{ width: 100%; }
+  .field textarea{ min-height: 160px; resize: vertical; line-height: 1.5; }
+  .field-row{ display: flex; gap: 10px; }
+  .field-row .field{ flex: 1 1 0; }
+  .cat-row{ display: flex; gap: 8px; align-items: center; }
+  .cat-row select{ flex: 1 1 auto; }
+  .modal-actions{ display: flex; justify-content: space-between; align-items: center; margin-top: 18px; gap: 10px; }
+  .modal-actions .right{ display:flex; gap: 8px; }
+  .hint{ font-size: 11px; color: var(--ink-dim); margin-top: 4px; }
+
+  @media (max-width: 860px){
+    .toc-toggle{ display: inline-block; }
+    nav.toc{
+      position: fixed; top: 0; left: 0; bottom: 0; z-index: 40; width: min(86vw, 340px);
+      max-height: 100vh; background: var(--bg); transform: translateX(-100%);
+      transition: transform 0.2s ease; padding-top: 76px; box-shadow: 2px 0 24px rgba(0,0,0,0.5);
+    }
+    nav.toc.mobile-open{ transform: translateX(0); }
+    .toc-scrim{ display: none; position: fixed; inset: 0; z-index: 35; background: rgba(0,0,0,0.5); }
+    .toc-scrim.show{ display: block; }
+    .field-row{ flex-direction: column; }
+  }
+
+  @media print{
+    header, nav.toc, .toc-scrim, .card-actions, footer, .empty .btn{ display: none !important; }
+    .layout{ display: block; max-width: none; }
+    main{ max-width: none; padding: 0 24px; }
+    body{ background: #fff; color: #111; }
+    .card{ background: #fff; border-color: #ccc; break-inside: avoid; }
+    .card-text{ color: #111; max-height: none; overflow: visible; }
+    .cat-heading h2{ color: #111; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <button class="toc-toggle" id="tocToggle">☰ Contents</button>
+  <div class="header-main">
+    <p class="eyebrow">Prompt Archive · Build Your Own</p>
+    <h1>Prompt Compendium Builder</h1>
+    <p class="sub" id="subLine">Your own prompt collection — nothing saved here leaves this browser.</p>
+    <div class="nudge" id="exportNudge" style="display:none">
+      <span id="exportNudgeText"></span>
+      <button class="btn small primary" id="nudgeExportBtn">Export now</button>
+      <button class="btn small ghost" id="nudgeDismissBtn">Dismiss</button>
+    </div>
+    <div class="controls">
+      <button class="btn primary" id="addBtn">+ Add Prompt</button>
+      <button class="btn ghost" id="bulkAddBtn">+ Bulk Add</button>
+      <input type="search" id="search" placeholder="Search prompts, subjects, or models…" autocomplete="off">
+      <select id="modelFilter"><option value="">All models / tools</option></select>
+      <select id="catFilter"><option value="">All categories</option></select>
+      <span class="count" id="count"></span>
+      <button class="btn ghost small" id="exportBtn">Export</button>
+      <button class="btn ghost small" id="importBtn">Import</button>
+      <button class="btn ghost small" id="printBtn">Print / Save PDF</button>
+      <button class="btn ghost small" id="altCatBtn" title="Swap in a more elaborate starting taxonomy">Try example categories</button>
+      <button class="btn ghost small" id="clearDemoBtn" style="display:none">Clear examples &amp; start fresh</button>
+      <input type="file" id="importFile" accept="application/json" style="display:none">
+    </div>
+  </div>
+</header>
+<div class="toc-scrim" id="tocScrim"></div>
+<div class="layout">
+  <nav class="toc" id="toc">
+    <p class="toc-title">Contents</p>
+    <div id="tocBody"></div>
+  </nav>
+  <main id="main"></main>
+</div>
+<footer>Everything here lives in this browser's local storage on this device. Use Export regularly to back up or move your compendium — nothing is synced anywhere automatically.<span class="credit">Tool by D the Designer · <a href="https://x.com/D_the_Designer" target="_blank" rel="noopener">@D_the_Designer</a></span></footer>
+
+<div class="overlay" id="bulkOverlay">
+  <div class="modal" style="max-width: 720px;">
+    <h3>Bulk add prompts</h3>
+    <p class="hint" style="margin-bottom: 10px;">
+      Paste as many prompts as you want, separated by a blank line or a line of dashes (<code>---</code>).
+      If a block starts with a name and <code>@handle</code>, that's picked up as attribution automatically.
+      Category and subject are guessed for each — review before adding.
+    </p>
+    <div class="field">
+      <textarea id="bulkText" style="min-height: 180px;" placeholder="Paste prompt 1 here...&#10;&#10;---&#10;&#10;Paste prompt 2 here..."></textarea>
+    </div>
+    <div class="modal-actions">
+      <div></div>
+      <div class="right">
+        <button class="btn ghost" id="bulkCancelBtn">Cancel</button>
+        <button class="btn primary" id="bulkParseBtn">Parse</button>
+      </div>
+    </div>
+    <div id="bulkReview" style="display:none; margin-top: 16px;">
+      <p class="hint" style="margin-bottom: 10px;">Found <span id="bulkCount">0</span> prompt(s). Uncheck any you don't want, then add.</p>
+      <div id="bulkList" style="max-height: 360px; overflow-y: auto; border: 1px solid var(--panel-border); border-radius: 4px;"></div>
+      <div class="modal-actions">
+        <div></div>
+        <div class="right">
+          <button class="btn ghost" id="bulkBackBtn">Back</button>
+          <button class="btn primary" id="bulkCommitBtn">Add selected</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <h3 id="modalTitle">Add a prompt</h3>
+    <div class="field">
+      <label>Model / tool</label>
+      <input type="text" id="fModel" placeholder="e.g. Midjourney V7, Nano Banana Pro, Kling 2.6, Unspecified…">
+    </div>
+    <div class="field">
+      <label>Attribution (optional)</label>
+      <input type="text" id="fAttribution" placeholder="Who shared or created this? e.g. Jane Doe (@handle)">
+      <p class="hint">Leave blank if unknown — credit whoever you got it from when you can.</p>
+    </div>
+    <div class="field">
+      <label>Subject (short label)</label>
+      <input type="text" id="fSubject" placeholder="What does this prompt generate?">
+    </div>
+    <div class="field">
+      <label>Category</label>
+      <div class="cat-row">
+        <select id="fCategory"></select>
+        <button class="btn ghost small" id="suggestCatBtn" type="button">Auto-suggest</button>
+        <button class="btn ghost small" id="newCatBtn" type="button">+ New</button>
+      </div>
+      <p class="hint">Auto-suggest guesses from the prompt text below — always double-check it.</p>
+    </div>
+    <div class="field">
+      <label>Prompt text</label>
+      <textarea id="fText" placeholder="Paste the full prompt here…"></textarea>
+    </div>
+    <div class="modal-actions">
+      <button class="btn danger small" id="deleteBtn" style="display:none">Delete this entry</button>
+      <div class="right">
+        <button class="btn ghost" id="cancelBtn">Cancel</button>
+        <button class="btn primary" id="saveBtn">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const STORAGE_KEY = 'promptCompendiumBuilder.v1';
+  const FIRST_VISIT_KEY = 'promptCompendiumBuilder.hasVisited';
+
+  // Neutral default — works for anyone, not tied to any one person's archive.
+  const DEFAULT_CATEGORIES = [
+    "Portraits & Characters",
+    "Products & Objects",
+    "Environments & Landscapes",
+    "Templates (Placeholder Frameworks)",
+    "System / Structured Prompts",
+    "Video & Motion",
+    "Reference & Style Notes",
+    "Uncategorized",
+  ];
+
+  // An alternative, more elaborate starting taxonomy people can opt into instead.
+  // GENERATED FROM source/categorize.js BY source/sync_builder.js — DO NOT HAND-EDIT.
+  /* BEGIN GENERATED: taxonomy */
+  const ALT_CATEGORIES = [
+    "Art Styles",
+    "Graphic Design & Typography Systems",
+    "Anime, Manga & Stylized Illustration",
+    "Animation Styles",
+    "Retrofuturism, Cassette Futurism & Used-Future Sci-Fi",
+    "Reference Lists (Artists & Style Names)",
+    "Structured / JSON & System Prompts",
+    "GPT Workflows & Story Frameworks",
+    "Reusable Templates (Placeholder Frameworks)",
+    "Star Trek Fan Film — Andorians & Original Species",
+    "Video & Camera-Motion Prompts",
+    "Real-Person-Likeness Character Portraits",
+    "Biomechanical, Cyborg & Body-Horror",
+    "Fantasy, Mythic & Dark-Fantasy Editorial",
+    "Fashion, Couture & Editorial Portraits",
+    "Horror & Cosmic Horror",
+    "Posters, Propaganda & Graphic Design",
+    "Space, Astronauts & Sci-Fi Environments",
+    "Product, Object & Tech Renders",
+    "Characters, Creatures & Scene Art (General)",
+    "Uncategorized",
+  ];
+  /* END GENERATED: taxonomy */
+
+  // Shown on a person's very first visit so the tool doesn't open to a blank void.
+  // Clearly marked isDemo so they can be wiped in one click without touching real entries.
+  const DEMO_ENTRIES = [
+    {
+      model: "Unspecified", attribution: null, category: "Portraits & Characters", isDemo: true,
+      subject: "Example — straight-out-of-camera portrait template",
+      text: "A straight-out-of-camera close portrait photo of [SUBJECT], framed head and shoulders against a plain muted wall, soft window light from one side, shallow depth of field with the eye plane sharp, visible skin texture and natural asymmetry, quiet direct expression, no airbrushing, no beauty retouching, no glamour lighting."
+    },
+    {
+      model: "Unspecified", attribution: null, category: "Products & Objects", isDemo: true,
+      subject: "Example — knolling product flat-lay template",
+      text: "Ultra-realistic 8K overhead product photograph in precise knolling composition, straight top-down view of [OBJECT] disassembled into its essential components, arranged with exact spacing in a grid, minimalist matte background, soft diffused lighting with gentle shadows, each component labeled with a thin leader line, technical editorial aesthetic, no watermark, no clutter."
+    },
+    {
+      model: "Unspecified", attribution: null, category: "Environments & Landscapes", isDemo: true,
+      subject: "Example — golden hour establishing shot template",
+      text: "A wide establishing shot of [LOCATION] at golden hour, warm directional light casting long shadows, atmospheric haze in the distance, layered depth from foreground to background, cinematic color grading, photorealistic, no people, no text, no logos."
+    },
+    {
+      model: "Unspecified", attribution: null, category: "Templates (Placeholder Frameworks)", isDemo: true,
+      subject: "Example — retro travel-poster silhouette template",
+      text: "Create a high-quality [SUBJECT] in a minimalist retro travel-poster style. Feature the subject as a bold silhouette with subtle highlight accents, placed in front of a vintage-inspired sunset made of concentric arches. Soft cream background with simple stylized clouds. Minimal sans-serif typography in the top-left corner displaying [TITLE] with [YEAR/DATE] beneath it. Mid-century modern aesthetic, muted colors, crisp edges."
+    },
+    {
+      model: "Nano Banana Pro / GPT Image Gen V2", attribution: null, category: "System / Structured Prompts", isDemo: true,
+      subject: "Example — platform-neutral style-conversion system prompt (shortened)",
+      text: "You are a platform-neutral image prompt writer. Your job is to convert any user-supplied text or image input into one complete image-generation prompt in a specific target style. Do not generate the image. Do not explain the style unless asked. Output only the finished plain-language prompt.\n\n(This is a shortened demo. A real system prompt in this category typically spells out: core style thesis, input handling rules, mandatory opening phrasing, a full list of concrete visual signals to include, and a list of things to avoid.)"
+    },
+    {
+      model: "Kling / Seedance / Runway (any video model)", attribution: null, category: "Video & Motion", isDemo: true,
+      subject: "Example — single continuous tracking-shot template",
+      text: "Single continuous uninterrupted cinematic shot, no cuts, one flowing 10-second take. [SUBJECT] moves through [LOCATION], camera tracking low and close beside it the entire time. Natural handheld energy, realistic lighting, no music, no narration. The shot ends on [FINAL BEAT]."
+    },
+    {
+      model: "Reference list (not a generation prompt)", attribution: null, category: "Reference & Style Notes", isDemo: true,
+      subject: "Example — style-modifier reference list",
+      text: "Quick style-phrase reference (swap in as needed):\n- Oil painting — \"oil on canvas\", \"thick impasto oil painting\"\n- Watercolor — \"delicate watercolour\", \"soft translucent watercolour\"\n- Cyberpunk — \"neon cyberpunk\", \"blade runner cyberpunk aesthetic\"\n- Monochrome — \"pure monochrome\", \"high contrast black and white\""
+    },
+    {
+      model: "Unspecified", attribution: null, category: "Products & Objects", isDemo: true,
+      subject: "Example — green phosphor CRT terminal close-up (matches this tool's look)",
+      text: "A close-up macro photograph of a vintage green phosphor CRT computer terminal screen glowing in a dark room, displaying blocky OCR-A style monospaced text and a blinking cursor, visible horizontal scanlines and subtle screen curvature, soft green glow bleeding onto the surrounding desk and keyboard, fine dust particles catching the light, shallow depth of field, photorealistic, no modern UI elements, no color other than green and black."
+    },
+    {
+      model: "Unspecified", attribution: null, category: "Portraits & Characters", isDemo: true,
+      subject: "Example — Hazeltine-style terminal operator portrait",
+      text: "A cinematic portrait of a lone night-shift computer operator lit only by the green glow of a Hazeltine-style CRT terminal in front of them, face half-lit in phosphor green, dark room otherwise, faint monitor reflection visible in their glasses, 1970s-80s data-center atmosphere, grainy analog photograph quality, no modern devices, no color cast other than green and black shadow."
+    },
+  ];
+
+  function loadState(){
+    const isFirstVisit = !localStorage.getItem(FIRST_VISIT_KEY);
+    try{
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) {
+        localStorage.setItem(FIRST_VISIT_KEY, '1');
+        if (isFirstVisit){
+          return {
+            nextId: DEMO_ENTRIES.length + 1,
+            categories: DEFAULT_CATEGORIES.slice(),
+            entries: DEMO_ENTRIES.map((e, i) => ({ ...e, id: i + 1 })),
+            lastExport: null,
+          };
+        }
+        return { nextId: 1, categories: DEFAULT_CATEGORIES.slice(), entries: [], lastExport: null };
+      }
+      const parsed = JSON.parse(raw);
+      if (!parsed.categories) parsed.categories = DEFAULT_CATEGORIES.slice();
+      if (parsed.lastExport === undefined) parsed.lastExport = null;
+      return parsed;
+    } catch(e){
+      return { nextId: 1, categories: DEFAULT_CATEGORIES.slice(), entries: [], lastExport: null };
+    }
+  }
+  function saveState(){
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  }
+
+  let state = loadState();
+  let editingId = null;
+
+  const main = document.getElementById('main');
+  const toc = document.getElementById('toc');
+  const tocBody = document.getElementById('tocBody');
+  const searchInput = document.getElementById('search');
+  const modelFilter = document.getElementById('modelFilter');
+  const catFilter = document.getElementById('catFilter');
+  const countEl = document.getElementById('count');
+  const subLine = document.getElementById('subLine');
+  const tocToggle = document.getElementById('tocToggle');
+  const tocScrim = document.getElementById('tocScrim');
+  const overlay = document.getElementById('overlay');
+  const fModel = document.getElementById('fModel');
+  const fAttribution = document.getElementById('fAttribution');
+  const fSubject = document.getElementById('fSubject');
+  const fCategory = document.getElementById('fCategory');
+  const fText = document.getElementById('fText');
+  const modalTitle = document.getElementById('modalTitle');
+  const deleteBtn = document.getElementById('deleteBtn');
+
+  function escapeHtml(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function slug(s){ return 'cat-' + s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,''); }
+
+  // ---- client-side category suggester ----
+  // The body of this region is a verbatim copy of source/categorize.js, wrapped in an IIFE.
+  // GENERATED FROM source/categorize.js BY source/sync_builder.js — DO NOT HAND-EDIT.
+  /* BEGIN GENERATED: classifier */
+  const PROMPT_CLASSIFIER = (function(){
+  // Shared category classifier for both the docx and HTML builds.
+  // Rules are checked in order; first match wins. Keep order deliberate.
+
+  // Categories are grouped into two top-level sections purely for navigation/display —
+  // the classify() rules and category assignment are completely unaffected by this grouping.
+  const SECTIONS = [
+    {
+      title: "Styles & Art Techniques",
+      categories: [
+        "Art Styles",
+        "Graphic Design & Typography Systems",
+        "Anime, Manga & Stylized Illustration",
+        "Animation Styles",
+        "Retrofuturism, Cassette Futurism & Used-Future Sci-Fi",
+        "Reference Lists (Artists & Style Names)",
+      ],
+    },
+    {
+      title: "Subjects, Projects & Systems",
+      categories: [
+        "Structured / JSON & System Prompts",
+        "GPT Workflows & Story Frameworks",
+        "Reusable Templates (Placeholder Frameworks)",
+        "Star Trek Fan Film — Andorians & Original Species",
+        "Video & Camera-Motion Prompts",
+        "Real-Person-Likeness Character Portraits",
+        "Biomechanical, Cyborg & Body-Horror",
+        "Fantasy, Mythic & Dark-Fantasy Editorial",
+        "Fashion, Couture & Editorial Portraits",
+        "Horror & Cosmic Horror",
+        "Posters, Propaganda & Graphic Design",
+        "Space, Astronauts & Sci-Fi Environments",
+        "Product, Object & Tech Renders",
+        "Characters, Creatures & Scene Art (General)",
+      ],
+    },
+  ];
+
+  const CATEGORIES = SECTIONS.flatMap((s) => s.categories);
+
+  const REAL_PEOPLE = [
+    "rhea seehorn", "christopher lloyd", "winona ryder", "margot robbie",
+    "sadie sink", "jamie clayton", "frances mcdormand", "gwendolyn christie",
+    "karl marx", "philip k. dick", "hillary clinton", "krysten ritter",
+  ];
+
+  function has(text, ...needles) {
+    const t = text.toLowerCase();
+    return needles.some((n) => t.includes(n));
+  }
+
+  function isPlaceholderTemplate(text) {
+    const cleaned = text.replace(/\[redacted ip\]/gi, "").replace(/\[public figure redacted\]/gi, "");
+    return /\[[A-Za-z][A-Za-z0-9_ ]{1,30}\]/.test(cleaned) || /\{[A-Za-z][A-Za-z0-9_ ]{1,30}\}/.test(cleaned);
+  }
+
+  function isJsonOrSystem(text, model) {
+    const t = text.trim();
+    if (t.startsWith("{") && t.includes('":')) return true;
+    if (/<role>|<mission>|<instruction>|<crucial constraints|<step \d|<final output/i.test(text)) return true;
+    if (/^system_prompt/i.test(t)) return true;
+    if (/(^|\n)\s*system prompt\s*:/i.test(text)) return true;
+    if (/^(role:\s*)?you are (a|an|the)\b/i.test(t)) return true;
+    if (/WHIMSICAL PERSONIFICATION ILLUSTRATION SYSTEM/i.test(text)) return true;
+    if (/You are a visual director|You are an award-winning trailer director/i.test(text)) return true;
+    if (/Universal Cynical Vandalism Overlay/i.test(text)) return true;
+    if (/^(universal )?negative prompt\s*:/i.test(t)) return true;
+    if (/^steps:\s*\d+,\s*sampler:/i.test(t)) return true;
+    return false;
+  }
+
+  function isGptWorkflow(text) {
+    const t = text.toLowerCase();
+    const hasCharacterSheet = t.includes("character sheet");
+    const hasStoryStructure = /beat 1|beat 2|script planner|story engine|scriptwriting|character-first/.test(t);
+    return hasCharacterSheet && hasStoryStructure;
+  }
+
+  function isGraphicDesignSystem(text) {
+    const t = text.toLowerCase();
+    if (t.includes("text perspective embedding")) return true;
+    if (t.includes("badge system") && t.includes("series number")) return true;
+    if (t.includes("fixed structure") && (t.includes("variable elements") || t.includes("template set"))) return true;
+    if ((t.includes("kerning") || t.includes("grid system") || t.includes("typography system")) && t.includes("layout")) return true;
+    if (text.includes("固定结构") && text.includes("可变元素")) return true;
+    if (text.includes("pixel discipline")) return true;
+    if (text.includes("景深排版") || text.includes("进行时档案") || text.includes("文字透视嵌入") || text.includes("一色识人")) return true;
+    return false;
+  }
+
+  function isReferenceList(model, subject, text) {
+    if (/^Reference list/i.test(model)) return true;
+    if (/reference list/i.test(subject)) return true;
+    if (/^60s-70s industrial space program/i.test(text)) return true;
+    if (/^Vintage Sci Fi Artists/i.test(text)) return true;
+    return false;
+  }
+
+  function isVideoMotion(model, subject, text) {
+    if (/kling|seedance|hailuo|runway|grok\.com text-to-video/i.test(model)) return true;
+    if (/\bfpv\b|flythrough|tracking shot|crane-down|camera:|shot \d,|\d+(\.\d+)?\s*[–-]\s*\d+(\.\d+)?\s*s\b|second by second/i.test(text)) return true;
+    if (/storyboard|keyframe|contact sheet/i.test(text) && /camera/i.test(text)) return true;
+    if (/handheld|camcorder|documentary footage/i.test(text) && /rolling shutter|autofocus|compression artifacts|motion blur|lens breathing/i.test(text)) return true;
+    return false;
+  }
+
+  function isRealPersonLikeness(text) {
+    const t = text.toLowerCase();
+    return REAL_PEOPLE.some((p) => t.includes(p));
+  }
+
+  function isRetrofuturism(text) {
+    if (has(text, "nostromo", "cassette futur", "used future", "retrofutur", "cassette futurist")) return true;
+    const t = text.toLowerCase();
+    const classicFilms = ["blade runner", "the terminator (1984)", "aliens (1986)", "outland (1981)", "thief (1981)", "space: 1999", "alien (1979)"];
+    const hits = classicFilms.filter((f) => t.includes(f)).length;
+    return hits >= 2;
+  }
+
+  function isBiomechanical(text) {
+    return has(text, "biomechanical", "cyborg", "cybernetic", "vacuum-sealed", "exoskeleton", "h.r. giger", "hr giger", " giger ", "android", "bio-mechanical");
+  }
+
+  function isFantasy(text) {
+    if (/\bmage\b/i.test(text)) return true;
+    if (/\boni\b/i.test(text)) return true;
+    return has(text, "wizard", "sorceress", "tiefling", "grimoire", "dark angel", "gothic", "fantasy art", "dark fantasy", "mythological", "folklore", "elves", "elven", "balrog", "titan", "dragon");
+  }
+
+  function isFashion(text) {
+    return has(text, "couture", "fashion model", "editorial illustration", "headdress", "gown", "burlesque", "office dress", "jewelry that replaces");
+  }
+
+  function isAnime(text) {
+    return has(text, "anime", "manga", "ghibli", "studio ghibli");
+  }
+
+  function isAnimationStyle(text) {
+    return has(
+      text,
+      "cel animation", "cel-animation", "cel shading",
+      "stop motion", "stop-motion", "claymation",
+      "hand-drawn animation", "hand drawn animation", "hand-painted animation", "hand painted animation",
+      "traditional animation", "traditional 2d animation", "2d animation",
+      "animated on ones", "animated on twos", "principles of animation",
+      "rotoscop", "frame-by-frame", "frame by frame",
+      "disney animation", "pixar", "dreamworks", "don bluth"
+    );
+  }
+
+  function isHorror(text) {
+    return has(text, "horror", "lovecraft", "cosmic horror", "zombie", "cursed", "nightmare", "grotesque", "cthulhu", "disturbing", "creepy");
+  }
+
+  function isArtStyle(text) {
+    return text.includes("[art style only — subject stripped]");
+  }
+
+  function isTrekFanFilm(text) {
+    return has(text, "sensory stalks", "andorian", "star trek", "starfleet", "trek fan film", "vulcan ears", "romulan", "klingon", "starship enterprise");
+  }
+
+  function isPoster(text) {
+    return has(text, "poster", "propaganda", "graphic design", "typographic", "constructivist", "page layout");
+  }
+
+  function isSpace(text) {
+    return has(text, "astronaut", "space station", "spaceship", "starship", "orbit", "nebula", "galaxy", " alien ", "alien planet", "cosmic", "interstellar", "spacecraft");
+  }
+
+  function isProduct(text) {
+    return has(text, "knolling", "product photograph", "vinyl record", "keyboard", "computer", "cassette tape", "diorama", "render of a", "octane render of a");
+  }
+
+  function classify(entry) {
+    const { model, subject, text } = entry;
+    const combined = `${subject}\n${text}`;
+
+    if (isJsonOrSystem(text, model)) return "Structured / JSON & System Prompts";
+    if (isArtStyle(combined)) return "Art Styles";
+    if (isGptWorkflow(combined)) return "GPT Workflows & Story Frameworks";
+    if (isGraphicDesignSystem(combined)) return "Graphic Design & Typography Systems";
+    if (isTrekFanFilm(combined)) return "Star Trek Fan Film — Andorians & Original Species";
+    if (isVideoMotion(model, subject, text)) return "Video & Camera-Motion Prompts";
+    if (isPlaceholderTemplate(text)) return "Reusable Templates (Placeholder Frameworks)";
+    if (isReferenceList(model, subject, text)) return "Reference Lists (Artists & Style Names)";
+    if (isRealPersonLikeness(combined)) return "Real-Person-Likeness Character Portraits";
+    if (isRetrofuturism(combined)) return "Retrofuturism, Cassette Futurism & Used-Future Sci-Fi";
+    if (isBiomechanical(combined)) return "Biomechanical, Cyborg & Body-Horror";
+    if (isFantasy(combined)) return "Fantasy, Mythic & Dark-Fantasy Editorial";
+    if (isFashion(combined)) return "Fashion, Couture & Editorial Portraits";
+    if (isAnime(combined)) return "Anime, Manga & Stylized Illustration";
+    if (isAnimationStyle(combined)) return "Animation Styles";
+    if (isHorror(combined)) return "Horror & Cosmic Horror";
+    if (isPoster(combined)) return "Posters, Propaganda & Graphic Design";
+    if (isSpace(combined)) return "Space, Astronauts & Sci-Fi Environments";
+    if (isProduct(combined)) return "Product, Object & Tech Renders";
+    return "Characters, Creatures & Scene Art (General)";
+  }
+    return { classify, CATEGORIES, SECTIONS };
+  })();
+  /* END GENERATED: classifier */
+
+  function suggestCategory(text, model, subject){
+    return PROMPT_CLASSIFIER.classify({ model: model || '', subject: subject || '', text: text || '' });
+  }
+
+  function allCategories(){
+    const inUse = [...new Set(state.entries.map(e => e.category))];
+    const combined = [...state.categories];
+    inUse.forEach(c => { if (!combined.includes(c)) combined.push(c); });
+    return combined;
+  }
+
+  function populateFilterDropdowns(){
+    const models = [...new Set(state.entries.map(e => e.model))].sort();
+    modelFilter.innerHTML = '<option value="">All models / tools</option>' +
+      models.map(m => `<option value="${escapeHtml(m)}">${escapeHtml(m)}</option>`).join('');
+    const cats = allCategories();
+    catFilter.innerHTML = '<option value="">All categories</option>' +
+      cats.map(c => `<option value="${escapeHtml(c)}">${escapeHtml(c)} (${state.entries.filter(e=>e.category===c).length})</option>`).join('');
+  }
+
+  function populateCategorySelect(selectEl, selected){
+    const cats = allCategories();
+    selectEl.innerHTML = cats.map(c => `<option value="${escapeHtml(c)}" ${c===selected?'selected':''}>${escapeHtml(c)}</option>`).join('');
+  }
+
+  function renderToc(){
+    const cats = allCategories().filter(c => state.entries.some(e => e.category === c));
+    tocBody.innerHTML = cats.map(c => {
+      const items = state.entries.filter(e => e.category === c);
+      return `
+        <div class="toc-cat" data-cat="${escapeHtml(c)}">
+          <button class="toc-cat-btn" data-target="${slug(c)}">
+            <span>${escapeHtml(c)}</span>
+            <span class="n">${items.length}</span>
+            <span class="arrow">▸</span>
+          </button>
+          <ul class="toc-entries">
+            ${items.map(p => `<li><a href="#entry-${p.id}" data-id="${p.id}">#${p.id} — ${escapeHtml(p.subject.length > 56 ? p.subject.slice(0,56).trim()+'…' : p.subject)}</a></li>`).join('')}
+          </ul>
+        </div>`;
+    }).join('');
+
+    tocBody.querySelectorAll('.toc-cat-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const wrap = btn.closest('.toc-cat');
+        const wasOpen = wrap.classList.contains('open');
+        tocBody.querySelectorAll('.toc-cat.open').forEach(el => el.classList.remove('open'));
+        if (!wasOpen) wrap.classList.add('open');
+        catFilter.value = ''; searchInput.value = ''; render();
+        requestAnimationFrame(() => {
+          const target = document.getElementById(btn.getAttribute('data-target'));
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+        closeMobileToc();
+      });
+    });
+    tocBody.querySelectorAll('.toc-entries a').forEach(a => {
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        catFilter.value = ''; searchInput.value = ''; render();
+        requestAnimationFrame(() => {
+          const target = document.getElementById('entry-' + a.getAttribute('data-id'));
+          if (target){
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            target.style.borderColor = 'var(--accent)';
+            setTimeout(() => { target.style.borderColor = ''; }, 1600);
+          }
+        });
+        closeMobileToc();
+      });
+    });
+  }
+
+  function render(){
+    populateFilterDropdowns();
+    renderToc();
+    updateClearDemoBtn();
+    checkExportNudge();
+
+    const q = searchInput.value.trim().toLowerCase();
+    const model = modelFilter.value;
+    const cat = catFilter.value;
+    const filtered = state.entries.filter(p => {
+      if (model && p.model !== model) return false;
+      if (cat && p.category !== cat) return false;
+      if (!q) return true;
+      return p.text.toLowerCase().includes(q) || p.subject.toLowerCase().includes(q) || p.model.toLowerCase().includes(q) || (p.attribution && p.attribution.toLowerCase().includes(q));
+    });
+    countEl.textContent = filtered.length + ' / ' + state.entries.length + ' shown';
+    subLine.textContent = state.entries.length === 0
+      ? 'Your own prompt collection — nothing saved here leaves this browser.'
+      : `${state.entries.length} prompt${state.entries.length===1?'':'s'} saved in this browser.`;
+
+    if (state.entries.length === 0){
+      main.innerHTML = `<div class="empty">Nothing here yet.<br>Click <strong>+ Add Prompt</strong> above to start your own compendium.<br><button class="btn primary" id="emptyAddBtn">+ Add Prompt</button></div>`;
+      document.getElementById('emptyAddBtn').addEventListener('click', openAddModal);
+      return;
+    }
+    if (filtered.length === 0){
+      main.innerHTML = '<p class="empty">No prompts match that search.</p>';
+      return;
+    }
+
+    const cats = allCategories().filter(c => filtered.some(e => e.category === c));
+    let out = '';
+    cats.forEach(c => {
+      const items = filtered.filter(e => e.category === c);
+      out += `
+        <div class="cat-heading" id="${slug(c)}"><h2>${escapeHtml(c)}</h2><span class="cat-count">${items.length}</span></div>
+        <hr class="cat-rule">`;
+      out += items.map(p => `
+        <div class="card" id="entry-${p.id}" data-id="${p.id}">
+          <div class="card-head">
+            <div class="card-meta">
+              <div class="card-n">ARCHIVE #${p.id}</div>
+              <div class="card-model">${escapeHtml(p.model)}${p.attribution ? ' · ' + escapeHtml(p.attribution) : ''}</div>
+              <div class="card-subject">${escapeHtml(p.subject)}</div>
+            </div>
+            <div class="card-actions">
+              <div class="img-slot" data-id="${p.id}" title="Drop or click to add a reference image (not included when you copy)">
+                <span class="hint">+ image</span>
+                <button class="remove-btn" type="button" title="Remove image">×</button>
+              </div>
+              <button class="btn small copy-btn" data-id="${p.id}">Copy</button>
+              <button class="btn small ghost edit-btn" data-id="${p.id}">Edit</button>
+            </div>
+          </div>
+          <pre class="card-text">${escapeHtml(p.text)}</pre>
+        </div>`).join('');
+    });
+    main.innerHTML = out;
+
+    main.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = state.entries.find(e => e.id === parseInt(btn.dataset.id,10));
+        if (!item) return;
+        copyText(item.text, btn);
+      });
+    });
+    main.querySelectorAll('.edit-btn').forEach(btn => {
+      btn.addEventListener('click', () => openEditModal(parseInt(btn.dataset.id,10)));
+    });
+    wireImageSlots();
+  }
+
+  // ---- Reference images: stored locally in IndexedDB, per Archive #.
+  // These are for your own visual reference only — the Copy button never includes them.
+  const IMG_DB_NAME = 'promptCompendiumBuilderImages';
+  const IMG_STORE = 'images';
+  let imgDbPromise = null;
+  function getImgDB(){
+    if (imgDbPromise) return imgDbPromise;
+    imgDbPromise = new Promise((resolve, reject) => {
+      const req = indexedDB.open(IMG_DB_NAME, 1);
+      req.onupgradeneeded = () => { req.result.createObjectStore(IMG_STORE); };
+      req.onsuccess = () => resolve(req.result);
+      req.onerror = () => reject(req.error);
+    });
+    return imgDbPromise;
+  }
+  async function saveImageBlob(id, blob){
+    const db = await getImgDB();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction(IMG_STORE, 'readwrite');
+      tx.objectStore(IMG_STORE).put(blob, id);
+      tx.oncomplete = () => resolve();
+      tx.onerror = () => reject(tx.error);
+    });
+  }
+  async function loadImageBlob(id){
+    const db = await getImgDB();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction(IMG_STORE, 'readonly');
+      const req = tx.objectStore(IMG_STORE).get(id);
+      req.onsuccess = () => resolve(req.result || null);
+      req.onerror = () => reject(req.error);
+    });
+  }
+  async function deleteImageBlob(id){
+    const db = await getImgDB();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction(IMG_STORE, 'readwrite');
+      tx.objectStore(IMG_STORE).delete(id);
+      tx.oncomplete = () => resolve();
+      tx.onerror = () => reject(tx.error);
+    });
+  }
+
+  function setSlotImage(slot, blob){
+    const url = URL.createObjectURL(blob);
+    slot.innerHTML = '<img src="' + url + '" alt=""><button class="remove-btn" type="button" title="Remove image">×</button>';
+    slot.classList.add('has-image');
+  }
+  function clearSlotVisual(slot){
+    slot.innerHTML = '<span class="hint">+ image</span><button class="remove-btn" type="button" title="Remove image">×</button>';
+    slot.classList.remove('has-image');
+  }
+
+  const hiddenImgFileInput = document.createElement('input');
+  hiddenImgFileInput.type = 'file';
+  hiddenImgFileInput.accept = 'image/*';
+  hiddenImgFileInput.style.display = 'none';
+  document.body.appendChild(hiddenImgFileInput);
+  let activeSlotForPicker = null;
+
+  hiddenImgFileInput.addEventListener('change', async () => {
+    const file = hiddenImgFileInput.files[0];
+    hiddenImgFileInput.value = '';
+    if (!file || !activeSlotForPicker) return;
+    const id = activeSlotForPicker.getAttribute('data-id');
+    await saveImageBlob(id, file);
+    setSlotImage(activeSlotForPicker, file);
+  });
+
+  function wireImageSlots(){
+    main.querySelectorAll('.img-slot').forEach(slot => {
+      const id = slot.getAttribute('data-id');
+
+      loadImageBlob(id).then(blob => {
+        if (blob) setSlotImage(slot, blob);
+      }).catch(() => {});
+
+      slot.addEventListener('click', (e) => {
+        if (e.target.closest('.remove-btn')) return;
+        if (slot.classList.contains('has-image')){
+          const img = slot.querySelector('img');
+          if (img) window.open(img.src, '_blank');
+          return;
+        }
+        activeSlotForPicker = slot;
+        hiddenImgFileInput.click();
+      });
+
+      slot.addEventListener('dragover', (e) => { e.preventDefault(); slot.classList.add('dragover'); });
+      slot.addEventListener('dragleave', () => slot.classList.remove('dragover'));
+      slot.addEventListener('drop', async (e) => {
+        e.preventDefault();
+        slot.classList.remove('dragover');
+        const file = e.dataTransfer.files && e.dataTransfer.files[0];
+        if (!file || !file.type.startsWith('image/')) return;
+        await saveImageBlob(id, file);
+        setSlotImage(slot, file);
+      });
+
+      slot.addEventListener('click', async (e) => {
+        if (!e.target.closest('.remove-btn')) return;
+        e.stopPropagation();
+        await deleteImageBlob(id);
+        clearSlotVisual(slot);
+      });
+    });
+  }
+
+  function copyText(text, btn){
+    const done = () => {
+      const original = 'Copy';
+      btn.textContent = 'Copied';
+      setTimeout(() => { btn.textContent = original; }, 1400);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopy(text, done));
+    } else { fallbackCopy(text, done); }
+  }
+  function fallbackCopy(text, done){
+    const ta = document.createElement('textarea');
+    ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    try { document.execCommand('copy'); } catch(e) {}
+    document.body.removeChild(ta); done();
+  }
+
+  function openAddModal(){
+    editingId = null;
+    modalTitle.textContent = 'Add a prompt';
+    fModel.value = ''; fAttribution.value = ''; fSubject.value = ''; fText.value = '';
+    populateCategorySelect(fCategory, allCategories()[0]);
+    deleteBtn.style.display = 'none';
+    overlay.classList.add('show');
+    fModel.focus();
+  }
+  function openEditModal(id){
+    const item = state.entries.find(e => e.id === id);
+    if (!item) return;
+    editingId = id;
+    modalTitle.textContent = `Edit Archive #${id}`;
+    fModel.value = item.model; fAttribution.value = item.attribution || ''; fSubject.value = item.subject; fText.value = item.text;
+    populateCategorySelect(fCategory, item.category);
+    deleteBtn.style.display = 'inline-block';
+    overlay.classList.add('show');
+  }
+  function closeModal(){ overlay.classList.remove('show'); }
+
+  document.getElementById('addBtn').addEventListener('click', openAddModal);
+  document.getElementById('cancelBtn').addEventListener('click', closeModal);
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
+
+  document.getElementById('newCatBtn').addEventListener('click', () => {
+    const name = prompt('New category name:');
+    if (!name || !name.trim()) return;
+    const clean = name.trim();
+    if (!state.categories.includes(clean)) state.categories.push(clean);
+    populateCategorySelect(fCategory, clean);
+  });
+  document.getElementById('suggestCatBtn').addEventListener('click', () => {
+    if (!fText.value.trim()){ alert('Paste the prompt text first, then auto-suggest.'); return; }
+    const suggestion = suggestCategory(fText.value, fModel.value, fSubject.value);
+    if (!allCategories().includes(suggestion)) state.categories.push(suggestion);
+    populateCategorySelect(fCategory, suggestion);
+  });
+
+  document.getElementById('saveBtn').addEventListener('click', () => {
+    const model = fModel.value.trim() || 'Unspecified';
+    const attribution = fAttribution.value.trim() || null;
+    const subject = fSubject.value.trim();
+    const text = fText.value.trim();
+    const category = fCategory.value || 'Uncategorized';
+    if (!subject || !text){ alert('Subject and prompt text are both required.'); return; }
+
+    if (editingId){
+      const item = state.entries.find(e => e.id === editingId);
+      item.model = model; item.attribution = attribution; item.subject = subject; item.text = text; item.category = category;
+    } else {
+      state.entries.push({ id: state.nextId, model, attribution, subject, text, category });
+      state.nextId += 1;
+    }
+    saveState();
+    closeModal();
+    render();
+  });
+
+  deleteBtn.addEventListener('click', () => {
+    if (!editingId) return;
+    if (!confirm(`Delete Archive #${editingId}? This can't be undone (unless you have an exported backup).`)) return;
+    state.entries = state.entries.filter(e => e.id !== editingId);
+    saveState();
+    closeModal();
+    render();
+  });
+
+  document.getElementById('exportBtn').addEventListener('click', doExport);
+  function doExport(){
+    const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    const stamp = new Date().toISOString().slice(0,10);
+    a.href = url; a.download = `prompt-compendium-backup-${stamp}.json`;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    state.lastExport = Date.now();
+    saveState();
+    checkExportNudge();
+  }
+
+  document.getElementById('importBtn').addEventListener('click', () => document.getElementById('importFile').click());
+  document.getElementById('importFile').addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      let incoming;
+      try { incoming = JSON.parse(reader.result); } catch(err){ alert('That file is not valid JSON.'); return; }
+      if (!incoming || !Array.isArray(incoming.entries)){ alert('That file doesn\'t look like a compendium backup.'); return; }
+      const mode = state.entries.length === 0
+        ? 'replace'
+        : prompt('Type "replace" to overwrite your current compendium, or "merge" to add these on top of what you have:', 'merge');
+      if (!mode) return;
+      if (mode.toLowerCase().startsWith('replace')){
+        state = { nextId: incoming.nextId || (incoming.entries.length+1), categories: incoming.categories || DEFAULT_CATEGORIES.slice(), entries: incoming.entries, lastExport: state.lastExport };
+      } else {
+        let nextId = state.nextId;
+        const remapped = incoming.entries.map(e => ({ ...e, id: nextId++ }));
+        state.entries = state.entries.concat(remapped);
+        state.nextId = nextId;
+        (incoming.categories || []).forEach(c => { if (!state.categories.includes(c)) state.categories.push(c); });
+      }
+      saveState();
+      render();
+      alert(`Imported ${incoming.entries.length} prompt(s).`);
+    };
+    reader.readAsText(file);
+    e.target.value = '';
+  });
+
+  document.getElementById('printBtn').addEventListener('click', () => window.print());
+
+  // ---- Alternative starting taxonomy ----
+  document.getElementById('altCatBtn').addEventListener('click', () => {
+    if (!confirm('Swap in the more elaborate example category list? Your existing categories that are still in use will be kept alongside it.')) return;
+    const inUse = [...new Set(state.entries.map(e => e.category))];
+    const merged = ALT_CATEGORIES.slice();
+    inUse.forEach(c => { if (!merged.includes(c)) merged.push(c); });
+    state.categories = merged;
+    saveState();
+    render();
+  });
+
+  // ---- Demo entries ----
+  function updateClearDemoBtn(){
+    const hasDemo = state.entries.some(e => e.isDemo);
+    document.getElementById('clearDemoBtn').style.display = hasDemo ? 'inline-block' : 'none';
+  }
+  document.getElementById('clearDemoBtn').addEventListener('click', () => {
+    if (!confirm('Remove the example entries? Anything you\'ve added yourself is kept.')) return;
+    state.entries = state.entries.filter(e => !e.isDemo);
+    saveState();
+    render();
+  });
+
+  // ---- Export nudge ----
+  function checkExportNudge(){
+    const banner = document.getElementById('exportNudge');
+    const textEl = document.getElementById('exportNudgeText');
+    if (state.entries.filter(e => !e.isDemo).length === 0){ banner.style.display = 'none'; return; }
+    const daysSince = state.lastExport ? (Date.now() - state.lastExport) / 86400000 : Infinity;
+    if (daysSince < 7){ banner.style.display = 'none'; return; }
+    textEl.textContent = state.lastExport
+      ? `Last exported ${Math.floor(daysSince)} day${Math.floor(daysSince)===1?'':'s'} ago — back up your work.`
+      : `You haven't exported a backup yet — everything here only lives in this browser.`;
+    banner.style.display = 'flex';
+  }
+  document.getElementById('nudgeExportBtn').addEventListener('click', doExport);
+  document.getElementById('nudgeDismissBtn').addEventListener('click', () => {
+    state.lastExport = Date.now();
+    saveState();
+    document.getElementById('exportNudge').style.display = 'none';
+  });
+
+  // ---- Bulk add ----
+  const bulkOverlay = document.getElementById('bulkOverlay');
+  const bulkText = document.getElementById('bulkText');
+  const bulkReview = document.getElementById('bulkReview');
+  const bulkList = document.getElementById('bulkList');
+  let bulkParsed = [];
+
+  document.getElementById('bulkAddBtn').addEventListener('click', () => {
+    bulkText.value = '';
+    bulkReview.style.display = 'none';
+    bulkText.parentElement.style.display = 'block';
+    bulkOverlay.classList.add('show');
+  });
+  document.getElementById('bulkCancelBtn').addEventListener('click', () => bulkOverlay.classList.remove('show'));
+  bulkOverlay.addEventListener('click', (e) => { if (e.target === bulkOverlay) bulkOverlay.classList.remove('show'); });
+
+  function parseAttribution(block){
+    // "Name (@handle)" or bare "@handle" near the start of the block
+    const m1 = block.match(/^([A-Z][\w .'-]{1,40})\s*\(@([\w]{2,30})\)/m);
+    if (m1) return `${m1[1].trim()} (@${m1[2]})`;
+    const m2 = block.match(/@([\w]{2,30})/);
+    if (m2) return `@${m2[1]}`;
+    return null;
+  }
+
+  function parseBulkText(raw){
+    const blocks = raw.split(/\n\s*(?:---+|\n)\s*\n/).map(b => b.trim()).filter(b => b.length > 0);
+    return blocks.map(block => {
+      const attribution = parseAttribution(block);
+      const subject = block.replace(/\s+/g, ' ').trim().slice(0, 80);
+      const category = suggestCategory(block, 'Unspecified', subject);
+      return {
+        text: block,
+        attribution,
+        category,
+        subject: subject.length === 80 ? subject + '…' : subject,
+        model: 'Unspecified',
+        include: true,
+      };
+    });
+  }
+
+  document.getElementById('bulkParseBtn').addEventListener('click', () => {
+    const raw = bulkText.value;
+    if (!raw.trim()){ alert('Paste at least one prompt first.'); return; }
+    bulkParsed = parseBulkText(raw);
+    if (bulkParsed.length === 0){ alert('Nothing parsed — check your formatting.'); return; }
+    renderBulkReview();
+    bulkText.parentElement.style.display = 'none';
+    bulkReview.style.display = 'block';
+  });
+
+  document.getElementById('bulkBackBtn').addEventListener('click', () => {
+    bulkReview.style.display = 'none';
+    bulkText.parentElement.style.display = 'block';
+  });
+
+  function renderBulkReview(){
+    document.getElementById('bulkCount').textContent = bulkParsed.length;
+    bulkList.innerHTML = bulkParsed.map((item, i) => `
+      <div class="bulk-item">
+        <input type="checkbox" data-i="${i}" class="bulk-include" ${item.include ? 'checked' : ''}>
+        <div class="bulk-item-body">
+          <div class="bulk-item-subject">${escapeHtml(item.subject)}</div>
+          <div class="bulk-item-meta">
+            <span>Category:</span>
+            <select data-i="${i}" class="bulk-cat">
+              ${allCategories().map(c => `<option value="${escapeHtml(c)}" ${c===item.category?'selected':''}>${escapeHtml(c)}</option>`).join('')}
+            </select>
+            <span>Attribution: ${item.attribution ? escapeHtml(item.attribution) : '(none detected)'}</span>
+          </div>
+        </div>
+      </div>
+    `).join('');
+    bulkList.querySelectorAll('.bulk-include').forEach(cb => {
+      cb.addEventListener('change', () => { bulkParsed[+cb.dataset.i].include = cb.checked; });
+    });
+    bulkList.querySelectorAll('.bulk-cat').forEach(sel => {
+      sel.addEventListener('change', () => { bulkParsed[+sel.dataset.i].category = sel.value; });
+    });
+  }
+
+  document.getElementById('bulkCommitBtn').addEventListener('click', () => {
+    const toAdd = bulkParsed.filter(item => item.include);
+    if (toAdd.length === 0){ alert('Nothing selected.'); return; }
+    toAdd.forEach(item => {
+      state.entries.push({
+        id: state.nextId,
+        model: item.model,
+        attribution: item.attribution,
+        subject: item.subject,
+        text: item.text,
+        category: item.category,
+      });
+      state.nextId += 1;
+    });
+    saveState();
+    bulkOverlay.classList.remove('show');
+    render();
+    alert(`Added ${toAdd.length} prompt(s).`);
+  });
+
+  function openMobileToc(){ toc.classList.add('mobile-open'); tocScrim.classList.add('show'); }
+  function closeMobileToc(){ toc.classList.remove('mobile-open'); tocScrim.classList.remove('show'); }
+  tocToggle.addEventListener('click', () => toc.classList.contains('mobile-open') ? closeMobileToc() : openMobileToc());
+  tocScrim.addEventListener('click', closeMobileToc);
+
+  searchInput.addEventListener('input', render);
+  modelFilter.addEventListener('change', render);
+  catFilter.addEventListener('change', render);
+
+  render();
+</script>
+</body>
+</html>
