@@ -7462,4 +7462,13 @@ Loose-fitting, low-rise olive-brown washed cotton cargo pants with a relaxed, ov
 
 Brown suede slip-on shoes with rounded toes, low-profile soles, and a soft, casual finish. Minimal accessories and natural makeup complete the understated contemporary streetwear aesthetic.`},
 
+{model:"GPT (image reference)", attribution:null, subject:"\"Kaleido Couture\" — Geometric Cubist Art Deco portrait from a reference photo, pastel palette", text:
+`Kaleido Couture — Fashion, faces, and settings woven into colourful geometric compositions.
+
+works best with GPT
+
+PROMPT
+
+Use the uploaded image as the sole reference for each subject's identity, pose, expression, hairstyle silhouette, clothing shape, accessories, objects, setting, camera angle, framing, and crop. Preserve those features and their positions, but use the same degree of abstraction for every image, regardless of how detailed or realistic the source is. Redraw the entire scene as a flat, hand-painted Geometric Cubist composition with Art Deco elegance. Construct the face, hair, skin, body, clothing, objects, and background from a small number of broad, interlocking triangles, wedges, and irregular polygonal planes. Use large planes across the face and body; allow smaller planes only where needed to make an eye, hand, or important object readable. Define each face with simplified brow, eye, nose, and mouth marks on broad colour planes. Remove photographic skin texture, individual hair strands, realistic eyelashes, intricate fabric detail, and lifelike shading. Reduce any lace, embroidery, print, or other fine pattern to a few large angular motifs. Keep the palette consistent: pale mint, powder blue, lavender, blush pink, peach, and butter yellow, with deep teal, cobalt, and plum planes placed behind the main subject for contrast. Select one vivid colour from the source image and use it in a few prominent planes on the subject, repeating it only sparingly elsewhere. Keep every plane mostly flat, with crisp edges, slight tonal variation, and subtle matte paint texture. Let selected planes cross between the subject and background while preserving a clear silhouette, recognizable identity, correct anatomy, and legible gestures. Apply this exact level of simplification to every image: the result must look like a deliberately abstract painting built from large shapes, never a realistic portrait with a polygon effect placed over it.`},
+
 ];
