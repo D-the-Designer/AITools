@@ -11,6 +11,7 @@ const payload = rawData.map((d, i) => {
     attribution: d.attribution || null,
     subject: d.subject,
     text: d.text,
+    image: d.image || null,
     category,
     subcategory: classifySubcategory(d, category),
   };
@@ -319,6 +320,21 @@ ${FONT_FACE_PLACEHOLDER}
     font-size: 13.5px;
     line-height: 1.35;
     color: var(--ink);
+  }
+  .source-image{
+    flex: 0 0 auto;
+    width: 96px;
+    height: 72px;
+    border: 1px solid var(--panel-border);
+    border-radius: 3px;
+    overflow: hidden;
+    background: #000;
+  }
+  .source-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
   .card-side{
     display: flex;
@@ -720,6 +736,7 @@ ${FONT_FACE_PLACEHOLDER}
                 <div class="card-subject">\${escapeHtml(p.subject)}</div>
                 \${p.subcategory ? '<div class="card-style-tag">' + escapeHtml(p.subcategory) + '</div>' : ''}
               </div>
+              \${p.image ? '<div class="source-image"><img src="' + p.image + '" alt="Archived output image for this prompt" loading="lazy"></div>' : ''}
               <div class="card-side">
                 <div class="img-slot" data-id="\${p.id}" title="Drop or click to add a reference image (not included when you copy)">
                   <span class="hint">+ image</span>

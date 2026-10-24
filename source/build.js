@@ -1,5 +1,6 @@
-const { Document, Packer, Paragraph, TextRun, HeadingLevel, PageBreak, AlignmentType, Bookmark, InternalHyperlink } = require("docx");
+const { Document, Packer, Paragraph, TextRun, HeadingLevel, PageBreak, AlignmentType, Bookmark, InternalHyperlink, ImageRun } = require("docx");
 const fs = require("fs");
+const sizeOf = require("image-size").imageSize;
 const data1 = require("./data.js");
 const { classify, classifySubcategory, CATEGORIES, SECTIONS } = require("./categorize.js");
 
@@ -415,8 +416,38 @@ sectionedGroups.forEach((section) => {
         ],
       })
     );
+    const imageParas = [];
+    if (item.image) {
+      try {
+        const m = /^data:image\/(\w+);base64,(.+)$/.exec(item.image);
+        if (m) {
+          const buf = Buffer.from(m[2], "base64");
+          const dims = sizeOf(buf);
+          const maxW = 360;
+          const scale = Math.min(1, maxW / dims.width);
+          imageParas.push(
+            new Paragraph({
+              spacing: { after: 120 },
+              alignment: AlignmentType.CENTER,
+              children: [
+                new ImageRun({
+                  data: buf,
+                  transformation: {
+                    width: Math.round(dims.width * scale),
+                    height: Math.round(dims.height * scale),
+                  },
+                }),
+              ],
+            })
+          );
+        }
+      } catch (e) {
+        console.warn("image embed failed for entry", item.id, e.message);
+      }
+    }
     children.push(
       ...metaParas,
+      ...imageParas,
       dividerPara(),
       ...bodyParagraphs(item.text),
       dividerPara(),
